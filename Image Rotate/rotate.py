@@ -1,21 +1,13 @@
-# import the Python Image 
-# processing Library 
-from PIL import Image 
+# import required libraries
+import cv2
 
-# Giving The Original image Directory 
-# Specified 
-Original_Image = Image.open(".yearImg.jpg") 
+# load the input image
+img = cv2.imread('yearImg.jpeg')
 
-# Rotate Image By 180 Degree 
-rotated_image1 = Original_Image.rotate(180) 
+# rotate the image by 180 degree clockwise
+img_cw_180 = cv2.rotate(img, cv2.ROTATE_180)
 
-# This is Alternative Syntax To Rotate 
-# The Image 
-rotated_image2 = Original_Image.transpose(Image.ROTATE_90) 
-
-# This Will Rotate Image By 60 Degree 
-rotated_image3 = Original_Image.rotate(60) 
-
-rotated_image1.show() 
-rotated_image2.show() 
-rotated_image3.show() 
+# display the rotated image
+cv2.imshow("Image rotated by 180 degree", img_cw_180)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
